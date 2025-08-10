@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="home"
+            type="com.cranox.doxy.fragments.Home" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.Home">
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_27sdp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/Header1"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/headerExtension"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/headerExtension"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="@dimen/_27sdp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/dot"
+            android:textColor="@color/Primary"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/addCard"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="0dp"
+            android:layout_marginStart="17dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->home.onAddCardClickListener()}"
+            app:cardBackgroundColor="@color/Primary"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintDimensionRatio="5:4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_title"
+            app:strokeWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/dottedCircle"
+                    android:layout_width="@dimen/_65sdp"
+                    android:layout_height="@dimen/_65sdp"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    android:src="@drawable/dotted_circle"
+                    app:layout_constraintBottom_toTopOf="@id/TapToUpload"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/TapToUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dottedCircle">
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:padding="0dp"
+                        android:text="@string/tap_to_upload"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:icon="@drawable/ic_upload"
+                        app:iconSize="20dp" />
+
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/subtitle_upload"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/circle"
+                    android:clickable="false"
+                    android:contentDescription="@string/add_button"
+                    android:elevation="5dp"
+                    android:focusable="false"
+                    android:src="@drawable/ic_add"
+                    app:layout_constraintBottom_toBottomOf="@id/dottedCircle"
+                    app:layout_constraintEnd_toEndOf="@id/dottedCircle"
+                    app:layout_constraintStart_toStartOf="@id/dottedCircle"
+                    app:layout_constraintTop_toTopOf="@id/dottedCircle"
+                    app:tint="@color/Primary" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/header_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/recent_document"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addCard" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bottom_sheet_dialog_background"
+            android:elevation="4dp"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_title2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recentDocuments_Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_title2" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/recentDocuments_Recycler"
+            app:layout_constraintStart_toStartOf="@id/recentDocuments_Recycler"
+            app:layout_constraintTop_toTopOf="@id/recentDocuments_Recycler"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="empty_list.lottie"
+            app:lottie_loop="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,37 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Doxy" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Doxy" parent="Base.Theme.Doxy" />
+
+    <style name="ShapeableImageViewRC20dp" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="CardTopCornersOnly" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_16sdp</item>
+        <item name="cornerSizeTopRight">@dimen/_16sdp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+<!--    <style name="TransparentBottomSheetStyle" parent="Theme.Material3.DayNight.BottomSheetDialog">-->
+<!--        <item name="android:background">@android:color/transparent</item>-->
+<!--        <item name="backgroundTint">@android:color/transparent</item>-->
+<!--    </style>-->
+
+    <style name="TransparentBottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheet</item>
+    </style>
+
+    <style name="TransparentBottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+</resources>
