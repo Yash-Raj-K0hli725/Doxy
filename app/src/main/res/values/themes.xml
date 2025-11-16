@@ -7,7 +7,7 @@
 
     <style name="Theme.Doxy" parent="Base.Theme.Doxy" />
 
-    <style name="ShapeableImageViewRC20dp" parent="">
+    <style name="custom_radius20" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>

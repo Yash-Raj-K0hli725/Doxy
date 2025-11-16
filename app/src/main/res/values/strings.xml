@@ -10,4 +10,10 @@
     <string name="tap_to_upload">Tap to Upload</string>
     <string name="add_button">add button</string>
     <string name="select_a_file">Select a File</string>
+    <string name="convert_images_to_pdf">Convert Images to PDF</string>
+    <string name="select_images">Select Images</string>
+    <string name="main_subtitle">Select one or more images from your device to create a\nPDF document</string>
+    <string name="add_more">Add More</string>
+    <string name="convert_to_pdf">Convert to PDF</string>
+    <string name="converting">Converting...</string>
 </resources>
