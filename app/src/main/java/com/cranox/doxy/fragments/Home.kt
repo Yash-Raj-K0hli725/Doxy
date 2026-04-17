@@ -1,13 +1,18 @@
 package com.cranox.doxy.fragments
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -90,7 +95,7 @@ class Home : Fragment() {
                 }
             }
         }
-
+        requestPermission()
     }
 
     @SuppressLint("SetTextI18n")
@@ -103,7 +108,10 @@ class Home : Fragment() {
     }
 
     private fun clearImages() {
-        images.clear(); mAdapter.submitList(getImages())
+        mAdapter.submitList(listOf())
+        images.clear();
+        bind.mFlow.visibility = View.VISIBLE
+        bind.step1.visibility = View.GONE
     }
 
     private fun wait(wait: Boolean) {
@@ -121,5 +129,21 @@ class Home : Fragment() {
             bind.loader.visibility = View.GONE
         }
         bind.convert.isEnabled = !wait
+    }
+
+    private fun requestPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            val permission = ContextCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
+            if (!permission) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    101
+                )
+            }
+        }
     }
 }

@@ -16,4 +16,5 @@
     <string name="add_more">Add More</string>
     <string name="convert_to_pdf">Convert to PDF</string>
     <string name="converting">Converting...</string>
+    <string name="recent">Recent</string>
 </resources>

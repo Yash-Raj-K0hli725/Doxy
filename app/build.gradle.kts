@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.cranox.doxy"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.cranox.doxy"
@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -34,12 +34,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding.enable = true
-    dataBinding.enable = true
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-    implementation ("com.intuit.sdp:sdp-android:1.1.1")
+    implementation("com.intuit.sdp:sdp-android:1.1.1")
     // ViewModel
     val lifecycle_version = "2.8.6"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")

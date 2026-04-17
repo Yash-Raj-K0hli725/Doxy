@@ -108,42 +108,54 @@
     </com.google.android.material.card.MaterialCardView>
 
 
-    <androidx.constraintlayout.helper.widget.Flow
+    <LinearLayout
         android:id="@+id/mFlow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="title,subtitle,selectImage"
-        app:flow_verticalGap="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5">
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/convert_images_to_pdf"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/convert_images_to_pdf"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/main_subtitle"
-        android:textColor="#AFAFAF" />
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/main_subtitle"
+            android:textAlignment="center"
+            android:textColor="#AFAFAF" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/selectImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/mBlue"
-        android:text="@string/select_images"
-        app:icon="@drawable/ic_add" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/selectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mBlue"
+            android:text="@string/select_images"
+            app:icon="@drawable/ic_add" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mBlue"
+            android:text="@string/recent"
+            android:visibility="gone"
+            app:icon="@drawable/ic_add" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

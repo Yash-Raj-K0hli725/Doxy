@@ -92,7 +92,10 @@ object PDFUtils {
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
             put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
-            put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOCUMENTS + "/Doxy")
+            put(
+                MediaStore.MediaColumns.RELATIVE_PATH,
+                Environment.DIRECTORY_DOCUMENTS + "/Doxy"
+            )
         }
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             cr.insert(MediaStore.Files.getContentUri("external"), values)
@@ -100,6 +103,7 @@ object PDFUtils {
             val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
             if (!dir.exists()) dir.mkdirs()
             val file = File(dir, filename)
+            if (!file.exists()) file.createNewFile()
             Uri.fromFile(file)
         }
     }

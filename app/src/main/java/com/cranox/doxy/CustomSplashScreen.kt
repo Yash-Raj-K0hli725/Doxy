@@ -22,8 +22,9 @@ class CustomSplashScreen : AppCompatActivity() {
             insets
         }
         Handler(Looper.myLooper()!!).postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
-        },2000)
+            overridePendingTransition(0, 0)
+        }, 2500)
     }
 }
